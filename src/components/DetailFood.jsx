@@ -22,6 +22,8 @@ function DetailFood() {
   const { pathname } = location;
   const id = pathname.split('/');
 
+  console.log('ghj');
+
   const foodItem = foodDetail ? foodDetail.meals[0] : [];
 
   const list = {
