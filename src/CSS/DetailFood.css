@@ -1,74 +1,81 @@
-.imgFood {
-  height: 300px;
-}
-
-.imgCarousel {
-  background: rgba(0, 0, 0, 0.05) no-repeat center center;
-  background-size: cover;
-  border-radius: 20px;
-  box-shadow: 0 0 10px #dfdfdf;
-  display: inline-block;
-  height: 150px;
-  margin: 10px;
-  position: relative;
-  width: 135px;
-}
-
-.container {
+.detailMain {
+  overflow: scroll;
+  overflow-x: hidden;
   display: flex;
-  overflow: hidden;
-  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  width: 283px;
+  height: 564px;
+}
+
+.imgFood {
+  width: 200px;
+  border-radius: 200px;
+  background-color: #6F88C8;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.btnDetail {
+  all: unset;
+  background-color: #6F88C8;
+  padding: 5px 30px;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+.btnDetail img {
+  width: 50px;
+}
+
+.details {
+  background-color: #F2BC79;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.instructions {
+  margin: 10px;
+}
+
+.video {
+  width: 250px;
+  height: 250px;
+}
+
+.carousel {
+  background-color: #4A407C;
+  margin: 20px;
+  border-radius: 20px;
 }
 
 .divCarousel {
-  background: rgba(0, 0, 0, 0.05) no-repeat center center;
-  background-size: cover;
-  border-radius: 20px;
-  box-shadow: 0 0 5px black;
-  display: inline-block;
-  height: 240px;
-  margin: 0 10px;
-  margin-left: 0;
-  position: relative;
-  width: 155px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.divCarouselBigger {
-  background: white;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-  border-top: 2px solid rgba(0, 0, 0, 0.1);
-  display: block;
-  height: 270px;
-  margin: 0;
-  margin-bottom: 50px;
-  overflow-x: scroll;
-  padding: 10px;
-  white-space: nowrap;
-  width: 100%;
+.imgCarousel {
+  margin-top: 50px;
+  width: 150px;
 }
 
 .pCarousel {
-  font-size: 18px;
-  margin-left: 15px;
+  color: white;
 }
 
 .h4Carousel {
-  margin-left: 15px;
-  margin-top: -15px;
-}
-
-.btnDiv {
-  bottom: 0;
-  height: 40px;
-  left: 0;
-  position: fixed;
+  color: white;
 }
 
 .start-recipe-btn {
-  bottom: 0;
-  position: fixed;
-}
-
-.ingredientProgress {
-  display: flex;
+  all: unset;
+  background-color: #6F88C8;
+  padding: 5px;
+  border-radius: 5px;
+  color: black;
 }

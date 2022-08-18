@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import '../CSS/ProgressFood.css';
 import ListDrink from './ListDrink';
 import ShareIcon from '../images/shareIcon.svg';
 import WhiteHeartIcon from '../images/whiteHeartIcon.svg';

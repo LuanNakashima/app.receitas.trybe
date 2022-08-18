@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import ShareIcon from '../images/shareIcon.svg';
 import WhiteHeartIcon from '../images/whiteHeartIcon.svg';
 import BlackHeartIcon from '../images/blackHeartIcon.svg';
-import '../CSS/DoneRecipes.css';
 import { deleteLocalFav } from '../Helpers';
 
 function ShowFavoriteRecipes() {

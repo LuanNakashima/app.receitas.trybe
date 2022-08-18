@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import Context from '../Context/Context';
-import '../CSS/Login.css';
 import logo from '../images/logo.png';
+import '../CSS/Login.css'
+
+import Button from 'react-bootstrap/Button';
 
 function Login() {
   const {
@@ -30,36 +32,34 @@ function Login() {
 
   return (
     <main className="main-login">
-      <section className="clip" />
-      <section className="section-form">
-        <img src={ logo } alt="logo" className="img-logo" />
-        <h1>Login</h1>
-        <form className="form">
-          <input
-            className="input-login"
-            type="email"
-            data-testid="email-input"
-            placeholder="E-mail"
-            onChange={ (e) => setEmail(e.target.value) }
-          />
-          <input
-            className="input-login"
-            type="password"
-            data-testid="password-input"
-            placeholder="Password"
-            onChange={ (e) => setPassword(e.target.value) }
-          />
-          <button
-            disabled={ !(validateEmail() && validatePassword()) }
-            type="submit"
-            data-testid="login-submit-btn"
-            onClick={ btnEnter }
-            className="btn-login"
-          >
-            Enter
-          </button>
-        </form>
-      </section>
+      <img src={ logo } alt="logo" className="img-logo" />
+      <h1 className="loginH1">Login</h1>
+      <form className="form">
+        <input
+          className="input-login"
+          type="email"
+          data-testid="email-input"
+          placeholder="E-mail"
+          onChange={ (e) => setEmail(e.target.value) }
+        />
+        <input
+          className="input-login"
+          type="password"
+          data-testid="password-input"
+          placeholder="Password"
+          onChange={ (e) => setPassword(e.target.value) }
+        />
+        <Button
+          disabled={ !(validateEmail() && validatePassword()) }
+          type="submit"
+          data-testid="login-submit-btn"
+          onClick={ btnEnter }
+          className="btn-login"
+          variant="primary"
+        >
+          Enter
+        </Button>
+      </form>
     </main>
   );
 }

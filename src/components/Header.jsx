@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import Context from '../Context/Context';
-import '../CSS/Header.css';
+import '../CSS/Header.css'
 
 function Header({ showIcon, titleHeader }) {
   const [search, setSearch] = useState(false);
@@ -82,32 +82,35 @@ function Header({ showIcon, titleHeader }) {
 
   return (
     <header className="container">
-      <Link
-        to="/profile"
-      >
-        <img
-          className="icons"
-          data-testid="profile-top-btn"
-          src={ profileIcon }
-          alt="ícone"
-        />
-      </Link>
-
-      <h2 data-testid="page-title">{ titleHeader }</h2>
-
-      { showIcon ? (
-        <button
-          className="searchOption"
-          type="button"
-          onClick={ () => { setSearch((a) => !a); } }
+      <div className="headerIcons">
+        <Link
+          to="/profile"
         >
           <img
-            data-testid="search-top-btn"
-            src={ searchIcon }
-            alt="explore"
+            className="icons"
+            data-testid="profile-top-btn"
+            src={ profileIcon }
+            alt="ícone"
           />
-        </button>
-      ) : undefined }
+        </Link>
+
+        <h2 data-testid="page-title" className="page-title">{ titleHeader }</h2>
+
+        { showIcon ? (
+          <button
+            className="searchOption"
+            type="button"
+            onClick={ () => { setSearch((a) => !a); } }
+          >
+            <img
+              className="icons"
+              data-testid="search-top-btn"
+              src={ searchIcon }
+              alt="explore"
+            />
+          </button>
+        ) : undefined }
+      </div>
 
       { search ? (
         <div className="searchContainer">
@@ -119,7 +122,7 @@ function Header({ showIcon, titleHeader }) {
             onChange={ ({ target }) => { setValueInput(target.value); } }
           />
 
-          <div>
+          <div className="search-options">
             <label htmlFor="ingredient" className="radioControl">
               <input
                 type="radio"

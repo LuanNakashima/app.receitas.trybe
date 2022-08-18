@@ -31,7 +31,7 @@ export const renderIngredients = (foodItem) => {
 
 export const renderFootBtn = (done, id, inProgress, param) => (
   done ? undefined : (
-    <Link to={ `/${param}/${id}/in-progress` }>
+    <Link to={ `/${param}/${id}/in-progress` } className="startLink">
       <button
         type="button"
         data-testid="start-recipe-btn"

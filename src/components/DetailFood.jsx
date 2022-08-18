@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import '../CSS/DetailFood.css';
 import ShareIcon from '../images/shareIcon.svg';
 import WhiteHeartIcon from '../images/whiteHeartIcon.svg';
 import BlackHeartIcon from '../images/blackHeartIcon.svg';
+import Carousel from 'react-elastic-carousel';
+import '../CSS/DetailFood.css'
 
 import { renderIngredients,
   renderFootBtn, btnFavLocal, getLocalFav,
@@ -21,8 +22,6 @@ function DetailFood() {
   const { location } = history;
   const { pathname } = location;
   const id = pathname.split('/');
-
-  console.log('ghj');
 
   const foodItem = foodDetail ? foodDetail.meals[0] : [];
 
@@ -44,7 +43,6 @@ function DetailFood() {
       const data = await response.json();
       setFoodDetail(data);
     })();
-    console.log('use 1');
     btnFavLocal(ids[2], setFavStatus);
   }, []);
 
@@ -58,7 +56,6 @@ function DetailFood() {
       const all = drinks.slice(0, six);
       setRecomFood(all);
     })();
-    console.log('use 2');
 
     localDoneRecipes(ids[2], setDone);
     localInProgress(ids[2], setInProgress);
@@ -67,28 +64,26 @@ function DetailFood() {
   const renderCarousel = () => {
     if (recomFood) {
       return (
-        <div className="container">
-          <div className="divCarouselBigger">
-            { recomFood.map((a, index) => (
-              <div
-                className="divCarousel"
-                key={ index }
-                data-testid={ `${index}-recomendation-card` }
+        <Carousel className="carousel">
+          { recomFood.map((a, index) => (
+            <div
+              className="divCarousel"
+              key={ index }
+              data-testid={ `${index}-recomendation-card` }
+            >
+              <img className="imgCarousel" src={ a.strDrinkThumb } alt={ a.strDrink } />
+
+              <p className="pCarousel">{ a.strCategory }</p>
+
+              <h4
+                data-testid={ `${index}-recomendation-title` }
+                className="h4Carousel"
               >
-                <img className="imgCarousel" src={ a.strDrinkThumb } alt={ a.strDrink } />
-
-                <p className="pCarousel">{ a.strCategory }</p>
-
-                <h4
-                  data-testid={ `${index}-recomendation-title` }
-                  className="h4Carousel"
-                >
-                  { a.strDrink }
-                </h4>
-              </div>
-            )) }
-          </div>
-        </div>
+                { a.strDrink }
+              </h4>
+            </div>
+          )) }
+        </Carousel>
       );
     }
   };
@@ -103,6 +98,7 @@ function DetailFood() {
         src={ url }
         title="video"
         data-testid="video"
+        className="video"
       />
     );
   };
@@ -116,19 +112,17 @@ function DetailFood() {
     setFavStatus(!favStatus);
     if (!favStatus) {
       getLocalFav(list);
-      console.log('mandou pro local');
     } else {
       deleteLocalFav(id[2]);
-      console.log('apagar do local');
     }
   };
 
   return (
-    <div>
+    <>
       {foodDetail
         ? ( // true
           <>
-            <main>
+            <main className="detailMain">
               <img
                 data-testid="recipe-photo"
                 className="imgFood"
@@ -138,54 +132,60 @@ function DetailFood() {
 
               <h1 data-testid="recipe-title">{foodItem.strMeal}</h1>
 
-              <button
-                data-testid="share-btn"
-                type="button"
-                onClick={ () => { copyFunc(`http://localhost:3000/foods/${id[2]}`); } }
-              >
-                <img src={ ShareIcon } alt="share-btn" />
-              </button>
+              <div className="btnsDetail">
+                <button
+                  className="btnDetail"
+                  data-testid="share-btn"
+                  type="button"
+                  onClick={ () => { copyFunc(`http://localhost:3000/foods/${id[2]}`); } }
+                >
+                  <img src={ ShareIcon } alt="share-btn" />
+                </button>
 
-              <button
-                type="button"
-                onClick={ favButton }
-              >
-                <img
-                  data-testid="favorite-btn"
-                  src={ favStatus ? BlackHeartIcon : WhiteHeartIcon }
-                  alt="fav-icon"
-                />
-              </button>
+                <button
+                  className="btnDetail"
+                  type="button"
+                  onClick={ favButton }
+                >
+                  <img
+                    data-testid="favorite-btn"
+                    src={ favStatus ? BlackHeartIcon : WhiteHeartIcon }
+                    alt="fav-icon"
+                  />
+                </button>
+              </div>
 
               { copied ? <p>Link copied!</p> : undefined}
 
-              <h3 data-testid="recipe-category">{foodItem.strCategory}</h3>
+              <div className="details">
+                <h3 data-testid="recipe-category">{`${foodItem.strCategory} Food`}</h3>
 
-              <h5>Ingredients</h5>
+                <h5>Ingredients</h5>
 
-              <ul>
-                {renderIngredients(foodItem)}
-              </ul>
+                <ul>
+                  {renderIngredients(foodItem)}
+                </ul>
 
-              <h3>instructions</h3>
+                <h3>Instructions</h3>
 
-              <p data-testid="instructions">
-                {foodItem.strInstructions}
-              </p>
+                <p data-testid="instructions" className="instructions">
+                  {foodItem.strInstructions}
+                </p>
+              </div>
 
               {renderVideo(foodItem.strYoutube)}
 
               {renderCarousel()}
 
+              <footer className="btnDiv">
+                { renderFootBtn(done, id[2], inProgress, 'foods') }
+              </footer>
             </main>
-            <footer className="btnDiv">
-              { renderFootBtn(done, id[2], inProgress, 'foods') }
-            </footer>
           </>
         ) : (
           <main>loading</main>
         )}
-    </div>
+    </>
   );
 }
 

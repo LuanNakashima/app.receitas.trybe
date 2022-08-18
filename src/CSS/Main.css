@@ -1,0 +1,45 @@
+.main {
+  overflow: scroll;
+  max-height: 473px;
+  overflow-x: hidden;
+}
+
+.btnCategory {
+  border: none;
+  background-color: #F2856D;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.allBtn {
+  background-color: #6F88C8;
+  width: 80px;
+}
+
+.renderList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  background-color: #F2EC9B;
+  width: 200px;
+  height: 150px;
+  margin: 10px 0;
+  border-radius: 10px 40px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardImg {
+  margin-top: 10px;
+  height: 120px;
+  width: 160px;
+  border-radius: 10px 40px;
+}

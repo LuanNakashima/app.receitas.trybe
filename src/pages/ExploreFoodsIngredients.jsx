@@ -3,7 +3,6 @@ import { useHistory, Link } from 'react-router-dom';
 import Context from '../Context/Context';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import '../CSS/ExplorePages.css';
 
 function ExploreFoodsIngredients() {
   const { ingredientsList, setIngredientsList,

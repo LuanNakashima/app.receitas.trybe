@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import '../CSS/Profile.css';
 import checkIcon from '../images/checkIcon.svg';
 import favIcon from '../images/favIcon.svg';
 import logoutIcon from '../images/logoutIcon.svg';

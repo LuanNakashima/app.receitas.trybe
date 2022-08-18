@@ -1,12 +1,22 @@
-p {
-  cursor: default;
-  text-decoration: none;
+.progressDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 565px;
 }
 
-input:checked ~ p {
-  text-decoration: line-through;
+.ingredientsList {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
-.doneIngredients {
-  text-decoration: line-through;
+.ingredientProgress {
+  display: flex;
+}
+
+.ingredientProgress :first-child {
+  margin: 5px;
 }

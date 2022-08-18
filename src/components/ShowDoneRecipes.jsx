@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ShareIcon from '../images/shareIcon.svg';
-import '../CSS/DoneRecipes.css';
 
 function ShowDoneRecipes() {
   const [copied, setCopied] = useState(false);

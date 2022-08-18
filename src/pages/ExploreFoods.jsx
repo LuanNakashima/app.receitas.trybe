@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { surpriseMeF } from '../requisitions/recipesData';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import '../CSS/ExplorePages.css';
 
 function ExploreFoods() {
   const history = useHistory();

@@ -2,7 +2,7 @@ import React from 'react';
 import DrinkIcon from '../images/drinkIcon.svg';
 import ExploreIcon from '../images/exploreIcon.svg';
 import MealIcon from '../images/mealIcon.svg';
-import '../CSS/Footer.css';
+import '../CSS/Footer.css'
 
 function Footer() {
   return (

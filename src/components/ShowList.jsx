@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import Context from '../Context/Context';
+import '../CSS/Main.css'
 
 function ShowList({ titleHeader }) {
   const [category, setCategory] = useState('');
@@ -99,6 +100,7 @@ function ShowList({ titleHeader }) {
           type="button"
           key={ strCategory }
           name={ strCategory }
+          className="btnCategory"
           data-testid={ `${strCategory}-category-filter` }
           onClick={ ({ target }) => {
             toggleFunc(target.name);
@@ -134,13 +136,16 @@ function ShowList({ titleHeader }) {
         return list12.map((recipe, index) => (
           <div
             data-testid={ `${index}-recipe-card` }
+            className="card"
             key={ recipe.strMeal }
           >
             <Link
               to={ `/foods/${recipe.idMeal}` }
+              className="cardLink"
             >
               <img
                 data-testid={ `${index}-card-img` }
+                className="cardImg"
                 src={ recipe.strMealThumb }
                 alt={ recipe.strMeal }
               />
@@ -161,6 +166,7 @@ function ShowList({ titleHeader }) {
         return (list12.map((recipe, index) => (
           <div
             data-testid={ `${index}-recipe-card` }
+            className="card"
             key={ recipe.strDrink }
           >
             <Link
@@ -168,6 +174,7 @@ function ShowList({ titleHeader }) {
             >
               <img
                 data-testid={ `${index}-card-img` }
+                className="cardImg"
                 src={ recipe.strDrinkThumb }
                 alt={ recipe.strDrink }
               />
@@ -187,18 +194,21 @@ function ShowList({ titleHeader }) {
   // ir pra main
 
   return (
-    <main>
+    <main className="main">
       { renderCategory() }
 
       <button
         data-testid="All-category-filter"
         type="button"
+        className="btnCategory allBtn"
         onClick={ () => { getAPIStandard(titleHeader); } }
       >
         All
       </button>
 
-      { renderCards() }
+      <div className="renderList">
+        { renderCards() }
+      </div>
     </main>
   );
 }

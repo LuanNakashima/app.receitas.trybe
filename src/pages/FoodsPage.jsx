@@ -15,9 +15,9 @@ function Foods() {
     <>
       <Header showIcon titleHeader="Foods" />
 
-      <Footer />
-
       { ingreOn ? <ShowIngreList /> : <ShowList titleHeader="Foods" /> }
+
+      <Footer />
     </>
   );
 }
