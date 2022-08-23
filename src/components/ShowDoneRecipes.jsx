@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ShareIcon from '../images/shareIcon.svg';
+import '../CSS/DoneFoods.css'
 
 function ShowDoneRecipes() {
   const [copied, setCopied] = useState(false);
@@ -80,6 +81,7 @@ function ShowDoneRecipes() {
             <button
               type="button"
               onClick={ () => { copyFunc(`http://localhost:3000/foods/${item.id}`); } }
+              className="btnShareDone"
             >
               <img
                 data-testid={ `${index}-horizontal-share-btn` }
@@ -112,7 +114,7 @@ function ShowDoneRecipes() {
 
   return (
     <>
-      <div>
+      <div className="btnsDone">
         <button
           data-testid="filter-by-all-btn"
           type="button"
@@ -140,7 +142,7 @@ function ShowDoneRecipes() {
         </button>
       </div>
 
-      <main>
+      <main className="mainDone">
         { all ? (
           renderLocalDone()
         ) : <p>Loading</p> }

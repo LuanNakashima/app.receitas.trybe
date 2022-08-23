@@ -43,26 +43,30 @@ function ExploreDrinksIngredients() {
   return (
     <>
       <Header showIcon={ false } titleHeader="Explore Ingredients" />
-      { ingredients ? (
-        ingredients.map((ingredient, index) => (
-          <Link
-            to="/foods"
-            key={ ingredient.strIngredient1 }
-            onClick={ () => { setNewFilter(ingredient.strIngredient1); } }
-          >
+      <div className="drinkNatMain">
+        { ingredients ? (
+          ingredients.map((ingredient, index) => (
             <div
-              data-testid={ `${index}-ingredient-card` }
+              key={ ingredient.strIngredient1 }
+              className="card"
             >
-              <img
-                src={ `https://www.thecocktaildb.com/images/ingredients/${ingredients[index].strIngredient1}-Small.png` }
-                alt={ ingredient.strIngredient1 }
-                data-testid={ `${index}-card-img` }
-              />
-              <p data-testid={ `${index}-card-name` }>{ ingredient.strIngredient1 }</p>
+              <Link
+              to="/foods"
+              className="cardLink"
+              onClick={ () => { setNewFilter(ingredient.strIngredient1); } }
+              >
+                <img
+                  src={ `https://www.thecocktaildb.com/images/ingredients/${ingredients[index].strIngredient1}-Small.png` }
+                  alt={ ingredient.strIngredient1 }
+                  data-testid={ `${index}-card-img` }
+                  className="cardImg"
+                />
+                <p data-testid={ `${index}-card-name` }>{ ingredient.strIngredient1 }</p>
+              </Link>
             </div>
-          </Link>
-        ))
-      ) : undefined }
+          ))
+        ) : undefined }
+      </div>
       <Footer />
     </>
   );

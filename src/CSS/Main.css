@@ -43,3 +43,10 @@
   width: 160px;
   border-radius: 10px 40px;
 }
+
+.email {
+  background-color: #6F88C8;
+  width: 100%;
+  height: 30px;
+  margin-bottom: -3px;
+}

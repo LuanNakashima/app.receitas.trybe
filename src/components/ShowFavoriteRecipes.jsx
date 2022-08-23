@@ -4,6 +4,7 @@ import ShareIcon from '../images/shareIcon.svg';
 import WhiteHeartIcon from '../images/whiteHeartIcon.svg';
 import BlackHeartIcon from '../images/blackHeartIcon.svg';
 import { deleteLocalFav } from '../Helpers';
+import '../CSS/DoneFoods.css'
 
 function ShowFavoriteRecipes() {
   const [copied, setCopied] = useState(false);
@@ -92,6 +93,7 @@ function ShowFavoriteRecipes() {
             <button
               type="button"
               onClick={ () => { copyFunc(`http://localhost:3000/foods/${item.id}`); } }
+              className="btnShareDone"
             >
               <img
                 data-testid={ `${index}-horizontal-share-btn` }
@@ -103,6 +105,7 @@ function ShowFavoriteRecipes() {
             <button
               type="button"
               onClick={ () => favButton(item.id) }
+              className="btnShareDone"
             >
               <img
                 data-testid={ `${index}-horizontal-favorite-btn` }
@@ -135,7 +138,7 @@ function ShowFavoriteRecipes() {
 
   return (
     <>
-      <div>
+      <div className="btnsDone">
         <button
           data-testid="filter-by-all-btn"
           type="button"
@@ -163,7 +166,7 @@ function ShowFavoriteRecipes() {
         </button>
       </div>
 
-      <main>
+      <main className="mainDone">
         { all ? (
           renderLocalDone()
         ) : <p>Loading</p> }

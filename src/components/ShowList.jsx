@@ -171,6 +171,7 @@ function ShowList({ titleHeader }) {
           >
             <Link
               to={ `/drinks/${recipe.idDrink}` }
+              className="cardLink"
             >
               <img
                 data-testid={ `${index}-card-img` }

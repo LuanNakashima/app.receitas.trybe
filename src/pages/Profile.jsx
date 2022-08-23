@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import checkIcon from '../images/checkIcon.svg';
 import favIcon from '../images/favIcon.svg';
 import logoutIcon from '../images/logoutIcon.svg';
+import '../CSS/Profile.css';
 
 function Profile() {
   const [getEmail, setEmail] = useState('');
@@ -27,12 +28,12 @@ function Profile() {
   return (
     <>
       <Header showIcon={ false } titleHeader="Profile" />
-      <h2
+      <h4
         data-testid="profile-email"
         className="email"
       >
         { getEmail.email }
-      </h2>
+      </h4>
       <div className="container">
         <Link
           to="/done-recipes"

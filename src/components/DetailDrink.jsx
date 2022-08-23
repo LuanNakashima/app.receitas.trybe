@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import ShareIcon from '../images/shareIcon.svg';
 import WhiteHeartIcon from '../images/whiteHeartIcon.svg';
 import BlackHeartIcon from '../images/blackHeartIcon.svg';
+import Carousel from 'react-elastic-carousel';
+import '../CSS/DetailFood.css'
 
 import { renderIngredients,
   renderFootBtn, btnFavLocal, getLocalFav,
@@ -74,28 +76,26 @@ function DetailDrink() {
   const renderCarousel = () => {
     if (recomFood) {
       return (
-        <div className="container">
-          <div className="divCarouselBigger">
-            { recomFood.map((a, index) => (
-              <div
-                className="divCarousel"
-                key={ index }
-                data-testid={ `${index}-recomendation-card` }
+        <Carousel className="carousel">
+          { recomFood.map((a, index) => (
+            <div
+              className="divCarousel"
+              key={ index }
+              data-testid={ `${index}-recomendation-card` }
+            >
+              <img className="imgCarousel" src={ a.strMealThumb } alt={ a.strMeal } />
+
+              <p className="pCarousel">{ a.strCategory }</p>
+
+              <h4
+                data-testid={ `${index}-recomendation-title` }
+                className="h4Carousel"
               >
-                <img className="imgCarousel" src={ a.strMealThumb } alt={ a.strMeal } />
-
-                <p className="pCarousel">{ a.strCategory }</p>
-
-                <h4
-                  data-testid={ `${index}-recomendation-title` }
-                  className="h4Carousel"
-                >
-                  { a.strMeal }
-                </h4>
-              </div>
-            )) }
-          </div>
-        </div>
+                { a.strMeal }
+              </h4>
+            </div>
+          )) }
+        </Carousel>
       );
     }
   };
@@ -119,7 +119,7 @@ function DetailDrink() {
       {foodDetail
         ? (
           <>
-            <main>
+            <main className="detailMain">
               <img
                 data-testid="recipe-photo"
                 src={ foodItem.strDrinkThumb }
@@ -129,52 +129,57 @@ function DetailDrink() {
 
               <h1 data-testid="recipe-title">{foodItem.strDrink}</h1>
 
-              <button
-                data-testid="share-btn"
-                type="button"
-                onClick={ () => { copyFunc(`http://localhost:3000/drinks/${id[2]}`); } }
-              >
-                <img src={ ShareIcon } alt="share-btn" />
-              </button>
+              <div className="btnsDetail">
+                <button
+                  data-testid="share-btn"
+                  className="btnDetail"
+                  type="button"
+                  onClick={ () => { copyFunc(`http://localhost:3000/drinks/${id[2]}`); } }
+                >
+                  <img src={ ShareIcon } alt="share-btn" />
+                </button>
 
-              <button
-                type="button"
-                onClick={ favButton }
-              >
-                <img
-                  data-testid="favorite-btn"
-                  src={ favStatus ? BlackHeartIcon : WhiteHeartIcon }
-                  alt="fav-icon"
-                />
-              </button>
+                <button
+                  type="button"
+                  className="btnDetail"
+                  onClick={ favButton }
+                >
+                  <img
+                    data-testid="favorite-btn"
+                    src={ favStatus ? BlackHeartIcon : WhiteHeartIcon }
+                    alt="fav-icon"
+                  />
+                </button>
+              </div>
 
               { copied ? <p>Link copied!</p> : undefined}
 
-              <h3
-                data-testid="recipe-category"
-              >
-                {`${foodItem.strCategory} - ${foodItem.strAlcoholic}`}
-              </h3>
+              <div className="details">
+                <h3
+                  data-testid="recipe-category"
+                >
+                  {`${foodItem.strCategory} - ${foodItem.strAlcoholic}`}
+                </h3>
 
-              <h5>Ingredients</h5>
+                <h5>Ingredients</h5>
 
-              <ul>
-                {renderIngredients(foodItem)}
-              </ul>
+                <ul>
+                  {renderIngredients(foodItem)}
+                </ul>
 
-              <h3>instructions</h3>
+                <h3>instructions</h3>
 
-              <p data-testid="instructions">
-                {foodItem.strInstructions}
-              </p>
+                <p data-testid="instructions" className="instructions">
+                  {foodItem.strInstructions}
+                </p>
+              </div>
 
               {renderCarousel()}
 
+              <footer className="btnDiv">
+                { renderFootBtn(done, id[2], inProgress, 'drinks') }
+              </footer>
             </main>
-            <footer className="btnDiv">
-              { renderFootBtn(done, id[2], inProgress, 'drinks') }
-            </footer>
-
           </>
         ) : (
           <main>loading</main>

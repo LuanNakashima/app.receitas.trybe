@@ -4,6 +4,7 @@ import ListDrink from './ListDrink';
 import ShareIcon from '../images/shareIcon.svg';
 import WhiteHeartIcon from '../images/whiteHeartIcon.svg';
 import BlackHeartIcon from '../images/blackHeartIcon.svg';
+import '../CSS/ProgressFood.css';
 
 import Context from '../Context/Context';
 
@@ -128,7 +129,7 @@ function ProgressDrink() {
 
   return (
     foodProgress ? (
-      <main>
+      <main className="progressDiv">
         <img
           data-testid="recipe-photo"
           className="imgFood"
@@ -138,51 +139,58 @@ function ProgressDrink() {
 
         <h1 data-testid="recipe-title">{foodProgress.strDrink}</h1>
 
-        <button
-          data-testid="share-btn"
-          type="button"
-          onClick={ () => { copyFunc(`http://localhost:3000/drinks/${id[2]}`); } }
-        >
-          <img src={ ShareIcon } alt="share-btn" />
-        </button>
+        <div className="btn-recipe-progress">
+          <button
+            data-testid="share-btn"
+            className="btnDetail"
+            type="button"
+            onClick={ () => { copyFunc(`http://localhost:3000/drinks/${id[2]}`); } }
+          >
+            <img src={ ShareIcon } alt="share-btn" />
+          </button>
 
-        <button
-          type="button"
-          onClick={ favButton }
-        >
-          <img
-            data-testid="favorite-btn"
-            src={ favStatus ? BlackHeartIcon : WhiteHeartIcon }
-            alt="fav-icon"
-          />
-        </button>
+          <button
+            className="btnDetail"
+            type="button"
+            onClick={ favButton }
+          >
+            <img
+              data-testid="favorite-btn"
+              src={ favStatus ? BlackHeartIcon : WhiteHeartIcon }
+              alt="fav-icon"
+            />
+          </button>
+        </div>
 
         { copied ? <p>Link copied!</p> : undefined}
 
         <h3 data-testid="recipe-category">{foodProgress.strCategory}</h3>
 
-        <h5>Ingredients</h5>
+        <div className='details'>
+          <h5>Ingredients</h5>
 
-        <ul>
-          {renderIngredients()}
-        </ul>
+          <ul>
+            {renderIngredients()}
+          </ul>
 
-        <h3>instructions</h3>
+          <h3>instructions</h3>
 
-        <p data-testid="instructions">
-          {foodProgress.strInstructions}
-        </p>
+          <p data-testid="instructions" className="instructions">
+            {foodProgress.strInstructions}
+          </p>
+        </div>
 
-        <Link to="/done-recipes">
-          <button
-            data-testid="finish-recipe-btn"
-            type="button"
-            disabled={ !finishBtnDisabled }
-            onClick={ () => { SetLocalDoneRecipes(doneLocal()); } }
-          >
-            Finish Recipe
-          </button>
-        </Link>
+          <Link to="/done-recipes">
+            <button
+              data-testid="finish-recipe-btn"
+              className='start-recipe-btn'
+              type="button"
+              disabled={ !finishBtnDisabled }
+              onClick={ () => { SetLocalDoneRecipes(doneLocal()); } }
+            >
+              Finish Recipe
+            </button>
+          </Link>
       </main>
     ) : (<p>Loading</p>)
   );

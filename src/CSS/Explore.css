@@ -1,0 +1,55 @@
+.explore-btn {
+  background-color: #6F88C8;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.mainIngredient {
+  overflow: scroll;
+  max-height: 434px;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardIngredient {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #6F88C8;
+  border-radius: 10px 40px;
+  box-shadow: 5px 5px 5px black;
+  padding: 0 20px;
+  margin: 10px;
+  height: 500px;
+}
+
+.ingredient-img {
+  width: 100px;
+}
+
+.ingreMain {
+  width: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.natMain {
+  overflow: scroll;
+  max-height: 413px;
+  overflow-x: hidden;
+}
+
+.drinkNatMain {
+  overflow: scroll;
+  max-height: 434px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}

@@ -40,9 +40,7 @@ function ExploreFoodsNationalities() {
     const response = await fetch(URL);
     const { meals } = await response.json();
     const meals12 = meals.slice(0, cardLimit);
-    console.log(meals12);
     setRecipes(meals12);
-    console.log(recipes);
   };
 
   const getRecipesAll = async () => {
@@ -83,27 +81,27 @@ function ExploreFoodsNationalities() {
           ))
         ) : undefined }
       </select>
-      <div>
+      <div className="natMain ingreMain">
         { recipes ? (
           recipes.map((recipe, index) => (
-            <Link
-              to={ `/foods/${recipe.idMeal}` }
+            <div
               key={ recipe.idMeal }
+              data-testid={ `${index}-recipe-card` }
+              className="card"
             >
-              <div
-                key={ recipe.idMeal }
-                data-testid={ `${index}-recipe-card` }
-
+              <Link
+                to={ `/foods/${recipe.idMeal}` }
+                className="cardLink"
               >
                 <img
                   src={ recipe.strMealThumb }
                   alt={ recipe.strMeal }
                   data-testid={ `${index}-card-img` }
+                  className="cardImg"
                 />
                 <p data-testid={ `${index}-card-name` }>{ recipe.strMeal }</p>
-
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))
         ) : undefined }
       </div>

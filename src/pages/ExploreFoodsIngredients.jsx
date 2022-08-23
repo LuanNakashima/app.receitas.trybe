@@ -40,12 +40,12 @@ function ExploreFoodsIngredients() {
     <div>
       <Header showIcon={ false } titleHeader="Explore Ingredients" />
       <div
-        className="ingredient-card"
+        className="ingredient-card mainIngredient"
       >
         { ingredientsList ? (
           ingredientsList.map((ingredient, index) => (
             <div
-              className="ingredient"
+              className="cardIngredient"
               key={ ingredient.idIngredient }
             >
               <Link

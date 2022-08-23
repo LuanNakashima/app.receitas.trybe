@@ -42,7 +42,6 @@ function ListFood({ index, value, isChecked }) {
       }
     } else {
       const local = JSON.parse(localStorage.getItem('inProgressRecipes'));
-      console.log(local);
       const localRemoved = local.meals[id[2]].filter((a) => a !== check);
       local.meals[id[2]] = localRemoved;
       localStorage.setItem('inProgressRecipes', JSON.stringify(local));
@@ -53,8 +52,6 @@ function ListFood({ index, value, isChecked }) {
     const localMeal = JSON.parse(localStorage.getItem('inProgressRecipes'));
     if (localMeal) {
       const done = localMeal.meals[id[2]];
-      console.log(done.length);
-      console.log(totalIngre);
       if (done.length === totalIngre) {
         setFinishBtnDisabled(true);
       }

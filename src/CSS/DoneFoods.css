@@ -1,0 +1,55 @@
+.mainDone {
+  overflow: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 283px;
+  height: 564px;
+}
+
+.btnsDone {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.btnsDone button {
+  all: unset;
+  background-color: #6F88C8;
+  max-width: 50px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+.done {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F2EC9B;
+  width: 250px;
+  height: 415px;
+  margin: 10px 0;
+  border-radius: 10px 40px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.done div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btnShareDone {
+  all: unset;
+  background-color: #6F88C8;
+  max-width: 50px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+.btnShareDone img {
+  width: 30px;
+}
